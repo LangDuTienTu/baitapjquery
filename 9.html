@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Bài tập jQuery - 9</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	function valid(email)
+	{
+		var emailReg = /^([\w-+.]+@([\w-]+\.)+[\w-]{1,})?$/;
+		return emailReg.test(email); //this will either return true or false based on validation
+	}
+	$(".submit").click(function() {
+		var username = $("#username").val();
+		var password = $("#password").val();
+		var password_repeat = $("#password_repeat").val();
+		var email = $("#email").val();
+		if (username.length <= 4) {
+			alert('Tên đăng nhập phải dài hơn 4 ký tự');
+		} else if (password.length < 1) {
+			alert('Mật khẩu ???');
+		} else if (password != password_repeat) {
+			alert('Mật khẩu nhập lại không khớp');
+		} else if (email.length < 1) {
+			alert('Nhập email');
+		} else if (!valid(email)) {
+			alert('Xem lại Email');
+		} else {
+			alert('Registered');
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div class="register">
+		<div class="title"><b>Đăng ký</b></div>
+		<div class="username">
+			<span class="label">Tên:</span>
+			<input type="text" placeholder="Tên đăng nhập" name="username" id="username" required>
+		</div>
+		<div class="password">
+			<span class="label">Mật khẩu:</span>
+			<input type="password" placeholder="Mật khẩu" name="password" id="password" required>
+		</div>
+		<div class="password_repeat">
+			<span class="label">Mật khẩu (nhập lại):</span>
+			<input type="password" placeholder="Nhập lại Mật khẩu" name="password_repeat" id="password_repeat" required>
+		</div>
+		<div class="email">
+			<span class="label">Email:</span>
+			<input type="text" placeholder="Email" name="email" id="email" required>
+		</div>
+		<button type="submit" class="submit">Register</button>
+	</div>
+</body>
+</html>

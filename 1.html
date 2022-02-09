@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Bài tập jQuery - 1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("input").change(function() {
+		var a = $("#nameA").val();
+		var b = $("#nameB").val();
+		var max = Math.max(a, b)
+		$("#result").html(max);
+	});
+});
+</script>
+</head>
+<body>
+<input type="text" id="nameA" value="0">
+<input type="text" id="nameB" value="0">
+<div>Max: <span id="result"></span></div>
+</body>
+</html>
